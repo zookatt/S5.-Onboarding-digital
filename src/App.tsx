@@ -12,7 +12,7 @@ interface Data {
 function App() {
   const [tutorialData] = useState<Data[]>([
     {
-      title: "Dedicass muchas horas",
+      title: "Dedica muchas horas",
       description:
         "Un minimo 30 horas a la semana. Si no es suficiente, tendras que dedicar mas horas. Al princio parece imposible, pero notaras una mejora rapidamente.",
       bgColor: '#138D75',
