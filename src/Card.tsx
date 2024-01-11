@@ -5,7 +5,7 @@ interface Props {
   description: string;
   bgColor: string;
   image: string;
- 
+  nextStep: () => void;
 }
 
 
@@ -15,11 +15,15 @@ function Card(props: Props) {
   };
   return (
     <>
-     <div style={cardColor}>
+      <div style={cardColor}>
         <h1>{props.title}</h1>
         <p>{props.description}</p>
         <img src={props.image} />
-        </div>
+      </div>
+      <div>
+      <button onClick={props.nextStep}>Next</button>  
+      </div>
+      
     </>
   );
 }
