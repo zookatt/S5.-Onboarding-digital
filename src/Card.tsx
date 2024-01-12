@@ -6,7 +6,9 @@ interface Props {
   description: string;
   bgColor: string;
   image: string;
+  prevStep: () => void;
   nextStep: () => void;
+  step: number;
 }
 function Card(props: Props) {
   const imageContainerStyle = {
@@ -21,12 +23,13 @@ function Card(props: Props) {
   };
 
   //icons
-  const iconPath = 'arrow-right-circle-fill.svg';
+  const iconPathLeft = 'arrow-left-circle.svg';
+  const iconPathRight = 'arrow-right-circle-fill.svg';
   const dot1 = 'dot.svg';
   const dot2 = 'dot2.svg';
   const selected = 'hand-index-thumb-fill.svg';
 
-  const iconNextStyle = {
+  const iconStyle = {
     width: 50,
     height: 50,
   }
@@ -45,10 +48,14 @@ function Card(props: Props) {
               <img src={dot1} alt="dot1" />
               <img src={dot2} alt="dot2" />
             </div>
-            <button className="btn btn-primary-outline" onClick={props.nextStep}>
-              <span></span>
-              <img src={iconPath} alt="Arrow Right Icon" style={iconNextStyle} />
-            </button>
+            <div>
+              {props.step > 0 && (<button className="btn btn-primary-outline" onClick={props.prevStep}>
+                <img src={iconPathLeft} alt="Arrow Right Icon" style={iconStyle} />
+              </button>)}
+              {props.step < 2 && (<button className="btn btn-primary-outline" onClick={props.nextStep}>
+                <img src={iconPathRight} alt="Arrow Right Icon" style={iconStyle} />
+              </button>)}
+            </div>
           </div>
 
         </div>

@@ -39,9 +39,12 @@ function App() {
   function nextStep(): void {
     setStep((prev) => prev + 1);
   }
-
+  function prevStep(): void {
+    setStep((prev) => prev - 1);
+  }
   const currentCardData = tutorialData[step];
 
+ 
   return (
     <div>
       <Card
@@ -49,7 +52,9 @@ function App() {
         description={currentCardData.description}
         bgColor={currentCardData.bgColor}
         image={currentCardData.image}
+        prevStep={prevStep}
         nextStep={nextStep}
+        step={step}
       />
     </div>
   );
