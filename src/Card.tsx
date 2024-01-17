@@ -1,4 +1,5 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
+import Indicator from './Indicator';
 
 interface Props {
   // anado interface Props para definir tipo de props  con TypeScript
@@ -9,7 +10,9 @@ interface Props {
   prevStep: () => void;
   nextStep: () => void;
   step: number;
+  totalSteps: number;
 }
+
 function Card(props: Props) {
   const imageContainerStyle = {
     backgroundColor: props.bgColor,
@@ -25,9 +28,7 @@ function Card(props: Props) {
   //icons
   const iconPathLeft = 'arrow-left-circle.svg';
   const iconPathRight = 'arrow-right-circle-fill.svg';
-  const dot1 = 'dot.svg';
-  const dot2 = 'dot2.svg';
-  const selected = 'hand-index-thumb-fill.svg';
+
 
   const iconStyle = {
     width: 50,
@@ -44,9 +45,7 @@ function Card(props: Props) {
           <p className="card-text">{props.description}</p>
           <div className="d-flex justify-content-between align-items-center">
             <div>
-              <img src={selected} alt="hand" />
-              <img src={dot1} alt="dot1" />
-              <img src={dot2} alt="dot2" />
+            <Indicator totalSteps={props.totalSteps} currentStep={props.step} />
             </div>
             <div>
               {props.step > 0 && (<button className="btn btn-primary-outline" onClick={props.prevStep}>
@@ -57,7 +56,6 @@ function Card(props: Props) {
               </button>)}
             </div>
           </div>
-
         </div>
       </div>
     </div>

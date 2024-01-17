@@ -1,0 +1,20 @@
+[
+    {
+      "title": "Dedica muchas horas",
+      "description": "Un mínimo de 30 horas a la semana. Si no es suficiente, tendrás que dedicar más horas. Al principio parece imposible, pero notarás una mejora rápidamente.",
+      "bgColor": "#138D75",
+      "image": "time.svg"
+    },
+    {
+      "title": "Programa proyectos propios",
+      "description": "Más vale 10 horas trabajando en proyectos propios que 10 horas mirando tutoriales. La motivación y la implicación en el proyecto ayudarán a acelerar tu aprendizaje.",
+      "bgColor": "#CCD1D1",
+      "image": "programming.svg"
+    },
+    {
+      "title": "Procura descansar",
+      "description": "Descansar bien y desconectar es vital. De esta manera, reducirás el estrés y la ansiedad. Mejorarás tu concentración y consolidarás tu aprendizaje.",
+      "bgColor": "#F4D03F",
+      "image": "meditation.svg"
+    }
+  ]

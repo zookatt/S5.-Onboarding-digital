@@ -9,7 +9,7 @@ interface Data {
   image: string;
 }
 
-function App() {
+export default function App() {
   const [tutorialData] = useState<Data[]>([
     {
       title: "Dedica muchas horas",
@@ -35,15 +35,18 @@ function App() {
   ]);
 
   const [step, setStep] = useState(0);
+  
 
   function nextStep(): void {
     setStep((prev) => prev + 1);
+
   }
   function prevStep(): void {
     setStep((prev) => prev - 1);
+
   }
   const currentCardData = tutorialData[step];
-
+  
  
   return (
     <div>
@@ -54,10 +57,11 @@ function App() {
         image={currentCardData.image}
         prevStep={prevStep}
         nextStep={nextStep}
+        totalSteps={tutorialData.length}
         step={step}
       />
     </div>
   );
 }
 
-export default App;
+
