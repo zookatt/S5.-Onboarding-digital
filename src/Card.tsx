@@ -11,6 +11,7 @@ interface Props {
   nextStep: () => void;
   step: number;
   totalSteps: number;
+  onDotClick: (index: number) => void;
 }
 
 function Card(props: Props) {
@@ -25,7 +26,7 @@ function Card(props: Props) {
     borderRadius: '20px', // redondeo de los bordes 
   };
 
-  //icons
+  //icons flechas
   const iconPathLeft = 'arrow-left-circle.svg';
   const iconPathRight = 'arrow-right-circle-fill.svg';
 
@@ -34,6 +35,8 @@ function Card(props: Props) {
     width: 50,
     height: 50,
   }
+
+
   return (
     <div className="d-flex justify-content-center">
       <div className="card col-md-2 mt-5" style={cardStyle}>
@@ -45,8 +48,10 @@ function Card(props: Props) {
           <p className="card-text">{props.description}</p>
           <div className="d-flex justify-content-between align-items-center">
             <div>
-            <Indicator totalSteps={props.totalSteps} currentStep={props.step} />
+              <Indicator totalSteps={props.totalSteps} currentStep={props.step}
+                onDotClick={props.onDotClick} />
             </div>
+
             <div>
               {props.step > 0 && (<button className="btn btn-primary-outline" onClick={props.prevStep}>
                 <img src={iconPathLeft} alt="Arrow Right Icon" style={iconStyle} />

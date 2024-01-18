@@ -35,19 +35,25 @@ export default function App() {
   ]);
 
   const [step, setStep] = useState(0);
-  
+
 
   function nextStep(): void {
     setStep((prev) => prev + 1);
 
   }
+  
   function prevStep(): void {
     setStep((prev) => prev - 1);
 
   }
+
+  const handleDotClick = (index: number): void => {
+    setStep(index);
+  };
+
   const currentCardData = tutorialData[step];
-  
- 
+
+
   return (
     <div>
       <Card
@@ -59,6 +65,7 @@ export default function App() {
         nextStep={nextStep}
         totalSteps={tutorialData.length}
         step={step}
+        onDotClick={handleDotClick}
       />
     </div>
   );
