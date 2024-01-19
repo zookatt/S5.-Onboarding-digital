@@ -41,7 +41,7 @@ export default function App() {
     setStep((prev) => prev + 1);
 
   }
-  
+
   function prevStep(): void {
     setStep((prev) => prev - 1);
 
@@ -65,6 +65,7 @@ export default function App() {
         nextStep={nextStep}
         totalSteps={tutorialData.length}
         step={step}
+        currentStep={step}
         onDotClick={handleDotClick}
       />
     </div>

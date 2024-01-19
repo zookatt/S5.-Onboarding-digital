@@ -1,5 +1,6 @@
 import 'bootstrap-icons/font/bootstrap-icons.css';
 import Indicator from './Indicator';
+import { useSpring, animated } from 'react-spring';
 
 interface Props {
   // anado interface Props para definir tipo de props  con TypeScript
@@ -10,6 +11,7 @@ interface Props {
   prevStep: () => void;
   nextStep: () => void;
   step: number;
+  currentStep: number;
   totalSteps: number;
   onDotClick: (index: number) => void;
 }
@@ -35,11 +37,16 @@ function Card(props: Props) {
     width: 50,
     height: 50,
   }
-
+  
+  // Animaciones para la transición entre tarjetas
+  const cardAnimation = useSpring({
+    transform: `translateX(-${props.step * 100}%)`,
+  });
 
   return (
+    
     <div className="d-flex justify-content-center">
-      <div className="card col-md-2 mt-5" style={cardStyle}>
+      <animated.div className="card col-md-2 mt-5" style={{...cardStyle,...cardAnimation }}>
         <div style={imageContainerStyle}>
           <img className="card-img-top mt-5 mb-5" src={props.image} alt="Card Image" />
         </div>
@@ -62,8 +69,10 @@ function Card(props: Props) {
             </div>
           </div>
         </div>
-      </div>
+        </animated.div>
+      
     </div>
+    
   );
 }
 

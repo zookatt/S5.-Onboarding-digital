@@ -52,5 +52,6 @@ function Indicator({ totalSteps, currentStep, onDotClick }: IndicatorProps) {
 }
 
 
+
 export default Indicator;
 
